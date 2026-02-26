@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(autoSlideInterval);
     }
 
-    // Event Listeners
+    // Event Listeners for screenshot loop
     nextBtn.addEventListener('click', () => {
         stopAutoSlide();
         nextScreenshot();
@@ -89,7 +89,21 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoSlide();
     });
 
-    // Initial load
+    // Initial load for screenshot loop
     showScreenshot(currentIndex);
     startAutoSlide();
+    
+    // Scroll-to-reveal Logic
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.1 
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 });

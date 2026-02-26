@@ -20,12 +20,15 @@ Action Keeper is a platform for creating, managing, and verifying poker staking 
 
 The existing "Lotto Generator" will be replaced with a modern, professional landing page to attract and inform potential users.
 
-### **Design & Aesthetics**
+### **Design & Aesthetics V2 (Modern & Dynamic)**
 
 *   **Theme:** Modern, clean, and trustworthy with a professional dark theme.
 *   **Fonts:** A clean, sans-serif font like 'Inter' or 'Manrope' for readability.
-*   **Visuals:** Use high-quality icons and subtle background textures. I will generate or source appropriate icons.
-*   **Interactivity:** Smooth-scrolling, and subtle animations on buttons and feature cards.
+*   **Visuals & Icons:** The generic icons will be replaced with **custom-designed, poker-themed SVG icons**. The hero section will feature a new **subtle, animated gradient background**.
+*   **Interactivity & Animations:**
+    *   **Scroll-to-Reveal:** Sections will smoothly fade and slide into view as the user scrolls.
+    *   **Enhanced Hover Effects:** Feature cards will have a "lift and glow" effect on hover for better feedback.
+    *   **Smooth Scrolling:** All anchor links will scroll smoothly.
 
 ### **Website Structure & Content**
 
@@ -41,31 +44,27 @@ The website will be a single-page layout with the following sections, with all c
     *   **Content:** Briefly explain the risks of informal agreements (disputes, lack of proof) and how Action Keeper provides a clear, verifiable solution.
 
 3.  **Key Features Section:**
-    *   Showcases three core features with icons and brief descriptions:
-        *   **Secure Shared Drafts:** "Collaborate on terms with a clear revision history before locking in the deal."
-        *   **Tamper-Evident Receipts:** "Generate a unique, verifiable receipt with a QR code and cryptographic hash."
-        *   **PDF Artifacts:** "Get a professional, downloadable PDF of your final agreement for your records."
+    *   Showcases three core features with **new custom poker-themed icons** and brief descriptions.
 
 4.  **Screenshot Loop Section:**
     *   **Headline:** "See It In Action."
-    *   **Content:** A gallery that automatically loops through placeholder screenshots of the application. This will include navigation buttons (Previous/Next) for manual control.
-    *   **Placeholders:** Since I cannot generate real screenshots, I will use SVG-based placeholders with labels like "Player Offer Composer," "Agreement Vault," and "Verified QR Receipt" to represent the key UI elements mentioned in the `README.md`.
+    *   **Content:** A gallery that automatically loops through the generated screenshots of the application.
 
 5.  **How It Works Section:**
-    *   A simple, 3-step visual guide:
-        1.  **Create:** Build an agreement with structured terms.
-        2.  **Finalize:** Negotiate and lock in the terms with all parties.
-        3.  **Verify:** Receive a secure, verifiable artifact.
+    *   A simple, 3-step visual guide.
 
 6.  **Footer & Final CTA:**
     *   A final "Join the Waitlist" section.
     *   Links to social media (placeholders).
     *   Copyright information.
 
-### **Technical Implementation**
+### **Technical Implementation V2**
 
-*   **HTML:** A new `index.html` with semantic structure for the sections above.
-*   **CSS:** A completely new `style.css` using CSS variables for a consistent and easily maintainable theme. It will be fully responsive and mobile-first.
-*   **JavaScript:** A new `main.js` for smooth scrolling and handling future interactivity (like a waitlist form submission). The dark/light theme toggle will be removed to fit the new, focused design.
+*   **HTML:** The `index.html` will be updated to include the new custom SVG icons.
+*   **CSS:** The stylesheet will be updated with:
+    *   An animated gradient background for the `.hero` section.
+    *   Keyframe animations for the scroll-to-reveal effect (e.g., `fade-in-up`).
+    *   Enhanced `transform` and `box-shadow` properties for the `.feature` card hover state.
+*   **JavaScript:** The `main.js` file will be updated to include an `IntersectionObserver` to detect when elements are visible in the viewport and apply the animation classes.
 
-This plan will result in a professional promotional website that accurately reflects the high quality of the Action Keeper application.
+This plan will result in a more dynamic and visually engaging promotional website.
