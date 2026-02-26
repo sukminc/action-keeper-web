@@ -2,23 +2,28 @@
 
 ## Overview
 
-A simple web application to generate random lottery numbers. The application will be built using HTML, CSS, and JavaScript, following modern web standards.
+A simple web application to generate random lottery numbers. The application is built using HTML, CSS, and JavaScript, following modern web standards.
 
 ## Design and Features
 
-### Initial Version
-*   **Unique Experience**: Modern components, visually balanced layout, and polished styles.
-*   **Responsive Design**: Adapts to different screen sizes.
-*   **Color and Typography**: Expressive typography and a vibrant color palette.
-*   **Visual Effects**: Multi-layered drop shadows for depth and a "glow" effect for interactive elements.
-*   **Functionality**:
-    *   Displays 6 unique random numbers between 1 and 45.
-    *   A button to generate a new set of numbers.
-*   **Accessibility**: Implemented to empower all users.
+### Core Features
+*   **Number Generation**: Generates 6 unique random numbers between 1 and 45.
+*   **Animation**: Visual animation during number generation for a better user experience.
+*   **Sorting**: Numbers are automatically sorted in ascending order.
+*   **Responsive**: Mobile-friendly design that works on any screen size.
 
-## Current Plan
+### Theme Support
+*   **Dark Mode**: A modern dark theme for reduced eye strain in low-light environments.
+*   **Light Mode**: A clean, vibrant light theme.
+*   **Persistence**: Remembers the user's theme preference using `localStorage`.
 
-1.  **Modify `index.html`**: Set up the basic structure for the lotto generator.
-2.  **Modify `style.css`**: Apply modern styling to the elements.
-3.  **Modify `main.js`**: Implement the logic for generating random numbers.
-4.  **Review and Refine**: Ensure the application is working correctly and looks good.
+### Visual Enhancements
+*   **Modern CSS**: Uses CSS variables for consistent theming and smooth transitions.
+*   **Expressive UI**: Polished shadows, rounded corners, and interactive button effects.
+
+## Progress
+
+1.  **Project Setup**: Initialized Git repository and basic file structure.
+2.  **Lotto Logic**: Implemented the random number generation and display logic.
+3.  **Theming**: Added Dark/Light mode toggle with persistence.
+4.  **GitHub Integration**: Pushed the project to a public GitHub repository.
