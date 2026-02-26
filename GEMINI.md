@@ -96,6 +96,21 @@ For computationally intensive tasks, the AI can integrate WebAssembly modules.
 * **Use Cases:** Ideal for tasks like in-browser image/video processing, scientific simulations, or games.
 * **Integration:** The AI will load and instantiate the `.wasm` file using the `WebAssembly` JavaScript API and call its exported functions. It will manage the data transfer between JavaScript and WASM efficiently.
 
+### **Automated Screenshot Generation with Puppeteer**
+
+To maintain high-quality visual assets for the promotional website, an automated screenshot workflow has been implemented using Puppeteer.
+
+*   **Running the Workflow:** The workflow can be executed by running `npm run screenshot` in the terminal.
+*   **What it Does:** The script (`screenshots.mjs`) will:
+    1.  Temporarily start a local web server.
+    2.  Launch a headless instance of Chrome using Puppeteer.
+    3.  Navigate to the local website.
+    4.  Take screenshots of predefined sections of the website.
+    5.  Save these screenshots to the `/screenshots` directory.
+    6.  Automatically stop the local web server.
+*   **Configuration:** The specific sections to be captured are defined in the `scenes` array within `screenshots.mjs`. This can be modified to add, remove, or change the screenshot targets.
+*   **Usage:** After running the workflow, the new screenshots can be used in the website's image carousels or feature sections by updating the paths in `main.js`.
+
 ## **Automated Error Detection & Remediation**
 
 A critical function of the AI is to continuously monitor for and automatically resolve errors to maintain a runnable and correct application state.

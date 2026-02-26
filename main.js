@@ -1,61 +1,95 @@
-const generateBtn = document.getElementById('generate-btn');
-const themeBtn = document.getElementById('theme-btn');
-const numberDivs = document.querySelectorAll('.number');
-const html = document.documentElement;
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-// Theme Logic
-const currentTheme = localStorage.getItem('theme') || 'light';
-setTheme(currentTheme);
-
-themeBtn.addEventListener('click', () => {
-    const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-});
-
-function setTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    themeBtn.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
-}
-
-// Lotto Logic
-generateBtn.addEventListener('click', () => {
-    generateBtn.disabled = true;
-    generateBtn.textContent = 'Generating...';
-    
-    // Simple animation effect
-    let count = 0;
-    const interval = setInterval(() => {
-        numberDivs.forEach(div => {
-            div.textContent = Math.floor(Math.random() * 45) + 1;
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-        count++;
-        if (count > 10) {
-            clearInterval(interval);
-            const lottoNumbers = generateLottoNumbers();
-            displayNumbers(lottoNumbers);
-            generateBtn.disabled = false;
-            generateBtn.textContent = 'Generate Numbers';
-        }
-    }, 50);
-});
-
-function generateLottoNumbers() {
-    const numbers = new Set();
-    while (numbers.size < 6) {
-        const randomNumber = Math.floor(Math.random() * 45) + 1;
-        numbers.add(randomNumber);
-    }
-    return Array.from(numbers).sort((a, b) => a - b);
-}
-
-function displayNumbers(numbers) {
-    numberDivs.forEach((div, index) => {
-        div.textContent = numbers[index];
-        // Add a small pop animation
-        div.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            div.style.transform = 'scale(1)';
-        }, 200);
     });
-}
+
+    // Waitlist form submission
+    const form = document.querySelector('.waitlist-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = form.querySelector('input');
+        const button = form.querySelector('button');
+        
+        input.disabled = true;
+        button.disabled = true;
+        button.textContent = 'Thank you!';
+
+        console.log(`Email submitted: ${input.value}`);
+
+        setTimeout(() => {
+            input.value = '';
+            input.disabled = false;
+            button.disabled = false;
+            button.textContent = 'Join the Waitlist';
+        }, 3000);
+    });
+
+    // Screenshot Loop Logic
+    const screenshots = [
+        {
+            alt: 'Hero Section',
+            url: 'screenshots/01-hero.png'
+        },
+        {
+            alt: 'Features Section',
+            url: 'screenshots/02-features.png'
+        },
+        {
+            alt: 'How It Works Section',
+            url: 'screenshots/03-how-it-works.png'
+        }
+    ];
+
+    const screenshotImg = document.getElementById('screenshot-img');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    function showScreenshot(index) {
+        screenshotImg.src = screenshots[index].url;
+        screenshotImg.alt = screenshots[index].alt;
+    }
+
+    function nextScreenshot() {
+        currentIndex = (currentIndex + 1) % screenshots.length;
+        showScreenshot(currentIndex);
+    }
+
+    function prevScreenshot() {
+        currentIndex = (currentIndex - 1 + screenshots.length) % screenshots.length;
+        showScreenshot(currentIndex);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextScreenshot, 4000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Event Listeners
+    nextBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        nextScreenshot();
+        startAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        prevScreenshot();
+        startAutoSlide();
+    });
+
+    // Initial load
+    showScreenshot(currentIndex);
+    startAutoSlide();
+});

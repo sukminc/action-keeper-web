@@ -1,0 +1,25 @@
+{
+  "name": "action-keeper-web",
+  "version": "1.0.0",
+  "description": "Action Keeper is a platform for creating, managing, and verifying poker staking agreements. Our mission is to bring trust, transparency, and simplicity to the world of poker staking, eliminating the confusion and disputes that can arise from informal deals.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "screenshot": "node screenshots.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukminc/action-keeper-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/sukminc/action-keeper-web/issues"
+  },
+  "homepage": "https://github.com/sukminc/action-keeper-web#readme",
+  "devDependencies": {
+    "puppeteer": "^24.37.5"
+  }
+}
